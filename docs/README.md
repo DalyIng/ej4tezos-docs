@@ -1,4 +1,4 @@
-![logo](https://ej4tezos.org/wp-content/uploads/2020/06/logo-ej4tezos-light.svg)
+![](./assets/logo-ej4tezos-light.svg)
 
 # TEZOS FOR JAVA DEVELOPERS
 
@@ -16,14 +16,22 @@ Use Tezos to create decentralized applications (or "dapps") that utilize the ben
 
 ## WORKING WITH EJ4TEOZS
 
-Links to articles explaining how to
+## Quick start
 
-- Connect to a tezos node using a proxy
-- Build your mobile dapp on Android
-- Listen to the node using Apache camel routes
-- Interacting with a Tezos contract using ej4tezos
-- Manage Tezos account
-- Managing the storage
-- Manage Fa1.2 contracts
-- Write and compile contract in smartpy using smartpy maven plugin
-  In our sample we intend to tweet some informations about every new block added to tezos Mainnet.
+## Connect to a tezos node
+
+## Build your mobile dapp on Android
+
+## interact with FA1.2 smart contrat
+
+## Listen to the node using Apache camel routes
+
+## Interacting with a Tezos contract using ej4tezos
+
+## Manage Tezos account
+
+## Managing the storage
+
+## Manage Fa1.2 contracts
+
+## Write and compile contract in smartpy using smartpy maven plugin
