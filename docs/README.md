@@ -1,10 +1,49 @@
 ![](./assets/logo-ej4tezos-light.svg)
 
-# TEZOS FOR JAVA DEVELOPERS
+# EJ4Tezos
+
+# Quickstart
+
+## Deploy and interact with smart contract
+
+<!-- How to deploy a smart contract with SmartPy plugin OR deploy Michelson directly using Java-SE-->
+
+## Manual configuration
+
+<!-- Maven config and Android xml configuration (Gradle is supposed to be developed in Part2) -->
+<!-- We mention plugins-->
+
+# Generate JAVA Stubs
+
+# Use JAVA Stubs
+
+## MAVEN
+
+### to interact with a S.C in Maven
+
+### to access contract's storage in Maven
+
+## ANDROID
+
+### to interact with a S.C in Android
+
+### to access contract's storage in Android
+
+# Deploy Smart contracts
+
+## Deploy Michelson S.C using EJ4tezos
+
+## Deploy S.C using SmartPy plugin
+
+# Camel Component
+
+<!-- # RxJava
+
+# Kotlin -->
+
+<!-- # TEZOS FOR JAVA DEVELOPERS
 
 > Learn how to develop for Tezos using Java-based projects and tooling
-
-Use Tezos to create decentralized applications (or "dapps") that utilize the benefits of cryptocurrency and blockchain technology. These dapps can be trustworthy, meaning that once they are deployed to Tezos mainnet, they will always run as programmed. They can control digital assets in order to create new kinds of financial applications. They can be decentralized, meaning that no single entity or person controls them and are nearly impossible to censor.
 
 ## GETTING STARTED WITH SMART CONTRACTS
 
@@ -14,9 +53,8 @@ Use Tezos to create decentralized applications (or "dapps") that utilize the ben
 
 - [SmartPy](https://smartpy.io/reference.html)
 
-## WORKING WITH EJ4TEOZS
 
-## Quick start
+# Quick start
 
 ## Connect to a tezos node
 
@@ -34,4 +72,4 @@ Use Tezos to create decentralized applications (or "dapps") that utilize the ben
 
 ## Manage Fa1.2 contracts
 
-## Write and compile contract in smartpy using smartpy maven plugin
+## Write and compile contract in smartpy using smartpy maven plugin -->
