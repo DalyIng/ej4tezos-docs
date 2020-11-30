@@ -1,13 +1,17 @@
 {
-  "name": "ej4tezosDocs",
+  "name": "ej4tezos-docs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Docs for EJ4Tezos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./node_modules/docsify-cli/bin/docsify serve docs"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "EJ4tezos",
+    "JAVA",
+    "Tezos"
+  ],
+  "author": "Mohamed Ali Masmoudi / Safwen Trabelsi",
   "license": "ISC",
   "dependencies": {
     "docsify-cli": "^4.4.2"
