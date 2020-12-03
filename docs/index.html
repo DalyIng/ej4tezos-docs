@@ -1,56 +1,60 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta charset="UTF-8" />
-    <title>EJ4Tezos Docs</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<link rel="icon" href="./assets/favicon.ico" />
-    <meta name="description" content="EJ4Tezos official documentation" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
-    />
     <link
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify/lib/themes/dark.css"
     />
+    <title>EJ4Tezos Docs</title>
+    <meta name="description" content="EJ4Tezos official documentation" />
+    <link rel="icon" href="./assets/favicon.ico" />
   </head>
   <body>
     <div id="app"></div>
     <script>
       window.$docsify = {
-        // name: "",
-        // repo: "",
-        logo: "./assets/logo-ej4tezos-light.svg",
+        el: "#app",
+        repo:
+          "https://gitlab.com/tezos-paris-hub/ej4tezos",
+        loadSidebar: true,
         search: "auto", // default
 
         search: [
-          "/", // => /README.md
-          "/guide", // => /guide.md
-          "/get-started", // => /get-started.md
-          "/zh-cn/", // => /zh-cn/README.md
+          "./", // => /README.md
         ],
-
-        // loadSidebar: true,
-        // subMaxLevel: 3,
-        name: "",
-        repo: "",
-
-        // search: "auto", // default
 
         // complete configuration parameters
         search: {
           maxAge: 86400000, // Expiration time, the default one day
-          paths: "auto",
+          // paths: [], // or 'auto'
           placeholder: "Type to search",
+
+          // Localization
+          placeholder: {
+            "/": "Search",
+          },
+
           noData: "No Results!",
+
+          // Localization
+          noData: {
+            "/": "No Results!",
+          },
+
           // Headline depth, 1 - 6
           depth: 6,
-          hideOtherSidebarContent: false, // whether or not to hide other sidebar content
+
+          // whether or not to hide other sidebar content
+          hideOtherSidebarContent: false,
         },
       };
     </script>
-    <!-- Docsify v4 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   </body>
 </html>
