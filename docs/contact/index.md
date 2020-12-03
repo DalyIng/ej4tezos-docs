@@ -1,6 +1,6 @@
 # Contact 
 
-To contact us:
+> To contact us:
 
 - Message us on our [telegram channel](https://t.me/EJ4TezosSupport)
 

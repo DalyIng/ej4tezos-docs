@@ -6,30 +6,7 @@
 <br />
 <br />
 <br />
+
 <p align="center">
 <img src="./assets/logo-ej4tezos-light.svg" alt="Welcome to EJ4Tezos docs"/>
 </p>
-
-<!-- # Generate JAVA Stubs
-
-# Use JAVA Stubs
-
-## MAVEN
-
-### to interact with a S.C in Maven
-
-### to access contract's storage in Maven
-
-## ANDROID
-
-### to interact with a S.C in Android
-
-### to access contract's storage in Android
-
-# Deploy Smart contracts
-
-## Deploy Michelson S.C using EJ4tezos
-
-## Deploy S.C using SmartPy plugin
-
-# Camel Component -->

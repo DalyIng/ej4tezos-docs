@@ -9,6 +9,8 @@
 * [Java Maven Plugin](./java/index)  
 
 * [Interacting with Smart Contracts](./interact/index)
+  * [Invoke an entryPoint](./interact/invoke/index)
+  * [Read from the storage](./interact/storage/index)
 
 * [SmartPy Maven Plugin](./smartpy/index)
   * [Compile](./smartpy/compile/index)

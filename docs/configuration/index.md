@@ -1,6 +1,6 @@
 # Maven Configuration:
 
-<font size="+1">In order to use EJ4Tezos in your Maven project, you'll need to configure your settings.xml file by adding a new `profile`, below an example of settings.xml configuration, by default that file is under the `/.m2` folder.</font>
+<font size="+1">In order to use EJ4Tezos different modules and plugins in your Maven projects, you'll need to configure your `settings.xml` file by adding a new `profile`. Below, you can find a full example of a `settings.xml` configuration, by default that file is under the `/.m2` folder:</font>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
