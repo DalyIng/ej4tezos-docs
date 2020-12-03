@@ -1,6 +1,14 @@
-<!-- <img src="./assets/logo-ej4tezos-light.svg" alt="drawing" width="100"/> -->
-
 # Welcome to EJ4Tezos official documentation!
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<p align="center">
+<img src="./assets/logo-ej4tezos-light.svg" alt="Welcome to EJ4Tezos docs"/>
+</p>
 
 <!-- # Generate JAVA Stubs
 
@@ -25,13 +33,3 @@
 ## Deploy S.C using SmartPy plugin
 
 # Camel Component -->
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<p align="center">
-<img src="./assets/logo-ej4tezos-light.svg" alt="Welcome to EJ4Tezos docs"/>
-</p>
