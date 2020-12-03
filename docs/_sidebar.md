@@ -2,7 +2,9 @@
   * [Introduction](./introduction/index)
   * [Modules](./modules/index)
 
-* [Configuration](./configuration/index)  
+* [Configuration](./configuration/index)
+
+* [Quickstart](./quickStart/index)
 
 * [Java Maven Plugin](./java/index)  
 
@@ -12,7 +14,9 @@
   * [Compile](./smartpy/compile/index)
   * [Deploy](./smartpy/deploy/index)
 
-* [Android](./android/index)  
+* [Android](./android/index) 
+
+* [Camel component](./camel/index) 
 
 * [About](./about/index)
 

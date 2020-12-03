@@ -33,6 +33,5 @@
 <br />
 <br />
 <p align="center">
-<!-- ![Welcome to Opensource.com](./assets/ej4tezos.png) -->
-<img src="./assets/logo-ej4tezos-light.svg" alt="drawing"/>
+<img src="./assets/logo-ej4tezos-light.svg" alt="Welcome to EJ4Tezos docs"/>
 </p>
