@@ -15,7 +15,6 @@
   "author": "Mohamed Ali Masmoudi / Safwen Trabelsi",
   "license": "ISC",
   "dependencies": {
-    "docsify-cli": "^4.4.2",
-    "docsify-darklight-theme": "^3.0.6"
+    "docsify-cli": "^4.4.2"
   }
 }
