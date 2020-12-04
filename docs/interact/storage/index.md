@@ -47,6 +47,7 @@ public static void main (String [] args) {
 
    - `Context` created in the above step;
    - `Contract address`;
+   - `Mode`: Need to be passed as a param only if we want to choose the `RealTime Mode`, in our example we didn't pass this param, so we'll work with the default mode, the `Cached Mode`.
 
 3. call a `getter` method of the entry need to be readed, in our case we have a `totalSupply` field in our contract's storage, to read it's value, simply call `getTotalSupply` method from the `storage proxy`, same for the `administrator` field, we can it's value by calllling `getAdministrator` method.
 

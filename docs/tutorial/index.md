@@ -14,7 +14,7 @@ Before starting, you must make sure you have `Maven`, `Node.js` and `Python3` in
 In order to make this tutorial as simple as we can, we'll develop a simple smart contract that contains:
 
 - Two entryPoints: `increment` & `decrement`
-- Two storage fields: `administrator` & `value`
+- Two storage fields: `administrator` & `storedValue`
 
 Here's our contract:
 
@@ -68,23 +68,25 @@ Now, under `smartpy-tutorial-smartpy/src/main/java/org/ej4tezos`:
 
 As specified in the [SmartPy Compile part](./smartpy/compile/index), we need to provide the `compile` job the following parameters:
 
-1. compiler: Compiler Path;
-2. name: Name of file of your contract;
-3. classCall: Name of Contract Class followed by the the storage initialization.
+1. _compiler_: Compiler Path;
+2. _name_: Name of file of your contract;
+3. _classCall_: Name of Contract Class followed by the the storage initialization, same used to compile a SmartPy contract via SmartPy CLI.
 
 So, in the current context, those parameters take as values:
 
 1. `SmartPy compiler path` (In my machine the path is: `/var/smartpy-cli/SmartPy.sh`)
 2. `EJ4TezosTutorial`
-3. `EJ4TezosTutorial(0, sp.address("tz1djN1zPWUYpanMS1YhKJ2EmFSYs6qjf4bW"))`
+3. `EJ4TezosTutorial(0, sp.address("tz1djN1zPWUYpanMS1YhKJ2EmFSYs6qjf4bW"))`: We initialsed the storage as following:
+   - `storeValue`: _0_
+   - `administrator`: _tz1djN1zPWUYpanMS1YhKJ2EmFSYs6qjf4bW`_
 
 ### Deploy
 
 As specified in the [SmartPy Deploy part](./smartpy/deploy/index), we need to provide the `deploy` job the following parameters:
 
-1. network: Tezos network (Mainnet by default);
-2. name: Name of file of your contract (must be the same used in the Compile goal);
-3. originatorPrivateKey: PrivateKey of the originator.
+1. _network_: Tezos network (Mainnet by default);
+2. _name_: Name of file of your contract (must be the same used in the Compile goal);
+3. _originatorPrivateKey_: PrivateKey of the originator.
 
 So, in the current context, those parameters take as values:
 
@@ -147,18 +149,20 @@ By typing the following command in a terminal we build the project:
 A successful build will generate under
 
 1.  `/target/compile`: Michelson compiled code;
-2.  `target/deploy`: `deploymentDescriptor.json` a file thagt contains all the origination details, just like the following:
+2.  `/target/deploy`: the `deploymentDescriptor.json` a file thagt contains all the origination details, just like the following:
 
-    ```json
-    {
-      "originationTransactionHash": "onnMMnktm8jgwrWgS1mKJQ4qZ8S4gi5DrmeCghRaxhuT2s5Mw4Q",
-      "host": "YOUR_HOST_DETAILS",
-      "originatedContractAddress": "KT19sEbnhft9STCTk1hqvojw4YHLMxALYwCi",
-      "user": "YOUR_USERNAME",
-      "network": "testnet",
-      "timestamp": "2020-12-04 15:27:17.013"
-    }
-    ```
+Here's the `deploymentDescriptor.json` when I built the project:
+
+```json
+{
+  "originationTransactionHash": "onnMMnktm8jgwrWgS1mKJQ4qZ8S4gi5DrmeCghRaxhuT2s5Mw4Q",
+  "host": "YOUR_HOST_DETAILS",
+  "originatedContractAddress": "KT19sEbnhft9STCTk1hqvojw4YHLMxALYwCi",
+  "user": "YOUR_USERNAME",
+  "network": "testnet",
+  "timestamp": "2020-12-04 15:27:17.013"
+}
+```
 
 And YEAH! that's it! Compiling and deploying SmartPy contracts is very simple with `EJ4Tezos`.
 
@@ -173,13 +177,13 @@ And YEAH! that's it! Compiling and deploying SmartPy contracts is very simple wi
 
 Now, under `smartpy-tutorial-java/src/main/java/org/ej4tezos`:
 
-- Remove the `src` folder.
+- Remove `src` folder.
 
 As specified in the [Java Maven Plugin part](./java/index), we need to provide the following parameters to our plugin:
 
-- Network: The network on which the contract was deployed;
-- Contract's name: You contract's name (Optional);
-- Contract's address: Contract address (KT1...).
+- _Network_: The network on which the contract was deployed;
+- _Contract's name_: You contract's name (Optional);
+- _Contract's address_: Contract address (KT1...).
 
 In the current context, those parameters take as values:
 
@@ -219,7 +223,9 @@ Now we need to add the following `xml` in our `pom.xml` file.
 						<goal>script</goal>
 					</goals>
 					<configuration>
+                        <!-- Network param -->
 						<network>carthagenet</network>
+                        <!-- Contract's address param -->
 						<address>KT1W34Wdfafv5mmT8mYWGNFj91W8dAfArYyp</address>
 					</configuration>
 				</execution>
@@ -229,6 +235,7 @@ Now we need to add the following `xml` in our `pom.xml` file.
 						<goal>micheline</goal>
 					</goals>
 					<configuration>
+                        <!-- Contract's name -->
 						<name>EJ4TezosTutorial</name>
 					</configuration>
 				</execution>
@@ -303,11 +310,6 @@ Add the following `xml` in the `pom.xml`:
 		<artifactId>java-se.default-impl</artifactId>
 		<version>1.0.0.0-SNAPSHOT</version>
 	</dependency>
-	<dependency>
-		<groupId>org.slf4j</groupId>
-		<artifactId>slf4j-simple</artifactId>
-		<version>${slf4j.version}</version>
-	</dependency>
 </dependencies>
 ```
 
@@ -320,11 +322,10 @@ package org.ej4tezos;
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 import java.math.BigInteger;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.ej4tezos.model.TezosPrivateKey;
 import org.ej4tezos.model.TezosContractAddress;
+
+import org.ej4tezos.api.TezosContractStorage.Mode;
 
 import org.ej4tezos.api.model.TezosTransactionHash;
 
@@ -354,7 +355,7 @@ public class App {
         try {
 
             if(args.length < 1) {
-                LOG.error("Please specify the private key!");
+                System.out.println("Please specify the private key!");
                 return;
             }
 
@@ -368,22 +369,29 @@ public class App {
 
             // Create the proxies:
             EJ4TezosTutorial ej4tezosTutorial = createProxy(context, tezosContractAddress, callerPrivateKey);
-            EJ4TezosTutorialStorage ej4tezosTutorialStorage = createStorageProxy(context, tezosContractAddress);
+            EJ4TezosTutorialStorage ej4tezosTutorialStorage = createStorageProxy(context, tezosContractAddress, Mode.REAL_TIME);
 
             // Display the contract address:
             System.out.println("Token contract address    :" + ej4tezosTutorial.getContractAddress());
-            System.out.println("Value from storage    :" + ej4tezosTutorialStorage.getStoredValue());
-            System.out.println("Administrator from storage    :" + ej4tezosTutorialStorage.getAdministrator());
-            // Invoke the mint method:
+
+            // Display the storedValue value before invocation
+            System.out.println("storedValue from storage before invocation    :" + ej4tezosTutorialStorage.getStoredValue());
+
+            // Display the administrator address:
+            System.out.println("administrator from storage    :" + ej4tezosTutorialStorage.getAdministrator());
+
+            // Invoke the increment method:
             TezosTransactionHash transactionHash = ej4tezosTutorial.increment(BigInteger.valueOf(100));
 
-            LOG.info("Transaction hash: {}", transactionHash);
             System.out.println("Transaction hash:       " + transactionHash);
+
+            // Display the storedValue value after invocation
+            System.out.println("storedValue from storage after invocation    :" + ej4tezosTutorialStorage.getStoredValue());
 
         }
 
         catch (Exception ex) {
-            LOG.warn("An exception occurred: {}", ex.getMessage(), ex);
+            System.out.println("An exception occurred: " + ex.getMessage() + " " + ex);
         }
     }
 
@@ -405,9 +413,17 @@ mvn compile exec:java -Dexec.mainClass="org.ej4tezos.App" -Dexec.args="edsk..."
 
 And here the result:
 
-<p align="center">
-<img src="./assets/interactionResult.png" alt="Twitter Post"/>
-</p>
+```bash
+Token contract address    :KT19sEbnhft9STCTk1hqvojw4YHLMxALYwCi
+storedValue from storage before invocation    :0
+administrator from storage    :tz1djN1zPWUYpanMS1YhKJ2EmFSYs6qjf4bW
+Transaction hash:       ooTjVDEANFoNcPCaFEHaBWszV4uCQeMAv3hwfGSYDcxEqs4dfED
+storedValue from storage after invocation    :100
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+```
 
 See the call operation to the `increment` entryPoint details [here](https://better-call.dev/carthagenet/opg/op8TKbTTaW2BtLEh9wTEDFeiYFdXHm8HLHJkBnCxAPNCLKstRYD/contents)
+
 AND THAT'S IT!
