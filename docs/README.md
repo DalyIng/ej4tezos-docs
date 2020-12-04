@@ -8,5 +8,5 @@
 <br />
 
 <p align="center">
-<img src="./assets/logo-ej4tezos-light.svg" alt="Welcome to EJ4Tezos docs"/>
+<img src="./assets/logo-ej4tezos-grey-2.svg" alt="Welcome to EJ4Tezos docs""/>
 </p>
