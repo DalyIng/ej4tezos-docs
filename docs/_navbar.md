@@ -4,8 +4,6 @@
 
 * [Configuration](./configuration/index)
 
-* [Quickstart](./quickStart/index)
-
 * [Java Maven Plugin](./java/index)  
 
 * [Interacting with Smart Contracts](./interact/index)
