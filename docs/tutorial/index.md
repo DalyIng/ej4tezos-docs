@@ -348,8 +348,6 @@ import static org.ej4tezos.contract.EJ4TezosTutorialHelper.createStorageProxy;
  */
 public class App {
 
-    private static Logger LOG = LoggerFactory.getLogger(App.class);
-
     public static void main (String [] args) {
 
         try {
